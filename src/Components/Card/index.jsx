@@ -4,10 +4,15 @@ import { useContext } from "react";
 
 const Card = (data) => {
   const context = useContext(ShoppingCartContext);
+
+  const showProductDetail = (productDetails) => {
+    context.setProductToShow(productDetails);
+    context.openProductDetail();
+  }
   return (
     <div
       className="bg-white cursor-pointer w-56 h-60"
-      onClick={() => context.openProductDetail()}
+      onClick={() => showProductDetail(data.data)}
     >
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-sm m-2 p-1">
